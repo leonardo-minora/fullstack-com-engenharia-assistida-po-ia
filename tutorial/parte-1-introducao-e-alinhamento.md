@@ -6,7 +6,7 @@ Entender como usar LLMs no ciclo de desenvolvimento com foco em produtividade vi
 ## Exemplo único da aula (fullstack monorepo)
 Neste tutorial, todo o conteúdo usa o mesmo projeto:
 - `apps/api`: NestJS (API)
-- `apps/web`: Next.js (frontend)
+- `apps/web`: Next.js (frontend web)
 - `packages/db`: camada de persistência PostgreSQL (migrations, schema e acesso a dados)
 
 ## 1) O ecossistema de IA no SDLC
