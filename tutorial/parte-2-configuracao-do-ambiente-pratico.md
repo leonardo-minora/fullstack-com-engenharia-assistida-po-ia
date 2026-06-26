@@ -33,6 +33,9 @@ Critério de sucesso:
 - [ ] Regras de segurança aplicadas
 
 ## Passo a passo do checklist (com comandos)
+> Substitua os placeholders:
+> - `<pacote-do-gemini-cli-da-sua-versao>` (ex.: pacote oficial informado na documentação da versão adotada)
+> - `<comando-cli>` (ex.: `gemini`, se este for o binário da sua instalação)
 
 ### 1) CLI instalado
 1. Verifique se o `node` e o `npm` estão instalados:
@@ -52,7 +55,7 @@ Critério de sucesso:
 ### 2) `GEMINI_API_KEY` carregada
 1. Defina a variável no shell atual:
    ```bash
-   export GEMINI_API_KEY="SUA_CHAVE_AQUI"
+   export GEMINI_API_KEY="SUA_CHAVE_REAL_AQUI"
    ```
 2. Confirme se a variável foi carregada:
    ```bash
@@ -61,10 +64,11 @@ Critério de sucesso:
 3. (Opcional) Para uso local, salve em `.env` (não versionado) com permissão restrita:
    ```bash
    touch .env
-   grep -q '^GEMINI_API_KEY=' .env || echo 'GEMINI_API_KEY="SUA_CHAVE_AQUI"' >> .env
+   grep -q '^GEMINI_API_KEY=' .env || echo 'GEMINI_API_KEY=""' >> .env
    chmod 600 .env
    ```
-4. Carregue a variável a partir do `.env` no shell atual:
+4. Edite o `.env` e preencha a chave real em `GEMINI_API_KEY`.
+5. Carregue a variável a partir do `.env` no shell atual:
    ```bash
    set -a
    source .env
