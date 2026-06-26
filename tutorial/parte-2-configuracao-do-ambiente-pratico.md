@@ -53,7 +53,7 @@ Critério de sucesso:
    ```
 
 ### 2) `GEMINI_API_KEY` carregada
-1. Defina a variável no shell atual sem expor a chave no histórico:
+1. Defina a variável no shell atual sem expor a chave no histórico (cole a chave quando o terminal solicitar):
    ```bash
    read -s GEMINI_API_KEY && export GEMINI_API_KEY
    echo
@@ -65,7 +65,7 @@ Critério de sucesso:
 3. Para uso local contínuo, prefira `.env` (não versionado) com permissão restrita:
    ```bash
    touch .env
-   grep -q '^GEMINI_API_KEY=' .env || echo 'GEMINI_API_KEY=""' >> .env
+   grep -q '^GEMINI_API_KEY=' .env 2>/dev/null || echo 'GEMINI_API_KEY=""' >> .env
    chmod 600 .env
    ```
 4. Edite o `.env` e preencha a chave real em `GEMINI_API_KEY`.
