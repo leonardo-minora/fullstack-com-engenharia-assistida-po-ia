@@ -71,7 +71,7 @@ Critério de sucesso:
    ```
 
 ### 3) Hello World executado
-1. Consulte a sintaxe de envio de prompt da versão instalada:
+1. Consulte a sintaxe de envio de prompt da versão instalada (os comandos podem variar entre versões):
    ```bash
    gemini --help
    ```
