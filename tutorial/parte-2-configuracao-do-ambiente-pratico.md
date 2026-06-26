@@ -60,7 +60,8 @@ Critério de sucesso:
    ```
 3. (Opcional) Para uso local, salve em `.env` (não versionado) com permissão restrita:
    ```bash
-   echo 'GEMINI_API_KEY="SUA_CHAVE_AQUI"' > .env
+   touch .env
+   grep -q '^GEMINI_API_KEY=' .env || echo 'GEMINI_API_KEY="SUA_CHAVE_AQUI"' >> .env
    chmod 600 .env
    ```
 4. Carregue a variável a partir do `.env` no shell atual:
