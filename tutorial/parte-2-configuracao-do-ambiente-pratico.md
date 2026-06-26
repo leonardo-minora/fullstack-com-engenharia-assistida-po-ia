@@ -31,3 +31,74 @@ Critério de sucesso:
 - [ ] `GEMINI_API_KEY` carregada
 - [ ] Hello World executado
 - [ ] Regras de segurança aplicadas
+
+## Passo a passo do checklist (com comandos)
+> Substitua os placeholders:
+> - `<pacote-do-gemini-cli-da-sua-versao>` (ex.: pacote oficial informado na documentação da versão adotada)
+> - `<comando-cli>` (ex.: `gemini`, se este for o binário da sua instalação)
+
+### 1) CLI instalado
+1. Verifique se o `node` e o `npm` estão instalados:
+   ```bash
+   node -v
+   npm -v
+   ```
+2. Instale o Gemini CLI (ajuste conforme a documentação da versão adotada):
+   ```bash
+   npm install -g <pacote-do-gemini-cli-da-sua-versao>
+   ```
+3. Valide a instalação:
+   ```bash
+   <comando-cli> --help
+   ```
+
+### 2) `GEMINI_API_KEY` carregada
+1. Defina a variável no shell atual sem expor a chave no histórico (cole a chave quando o terminal solicitar):
+   ```bash
+   read -sp 'Enter your GEMINI_API_KEY: ' GEMINI_API_KEY && export GEMINI_API_KEY
+   echo
+   ```
+2. Confirme se a variável foi carregada:
+   ```bash
+   printenv GEMINI_API_KEY
+   ```
+3. Para uso local contínuo, prefira `.env` (não versionado) com permissão restrita:
+   ```bash
+   touch .env
+   grep -q '^GEMINI_API_KEY' .env 2>/dev/null || echo 'GEMINI_API_KEY=' >> .env
+   chmod 600 .env
+   ```
+4. Edite o `.env` e preencha a chave real em `GEMINI_API_KEY`.
+5. Carregue a variável a partir do `.env` no shell atual:
+   ```bash
+   set -a
+   source .env
+   set +a
+   ```
+
+### 3) Hello World executado
+1. Consulte a sintaxe de envio de prompt da versão instalada (os comandos podem variar entre versões):
+   ```bash
+   <comando-cli> --help
+   ```
+2. Execute um prompt simples no terminal (exemplo para versões que aceitam prompt direto):
+   ```bash
+   <comando-cli> "responda apenas: Hello World"
+   ```
+3. Confirme que a resposta ocorreu sem erro de autenticação.
+
+### 4) Regras de segurança aplicadas
+1. Verifique se `.env` está ignorado:
+   ```bash
+   grep '^\.env$' .gitignore
+   grep '^\.env$' .gitignore >/dev/null || echo '.env' >> .gitignore
+   ```
+2. Garanta que `.env.example` não contém segredo real:
+   ```bash
+   cat .env.example
+   ```
+3. Antes de commitar, confira se não há segredos rastreados:
+   ```bash
+   git status
+   git diff
+   ```
