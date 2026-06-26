@@ -85,7 +85,7 @@ Critério de sucesso:
 ### 4) Regras de segurança aplicadas
 1. Verifique se `.env` está ignorado:
    ```bash
-   grep -n '^\.env$' .gitignore
+   grep '^\.env$' .gitignore
    ```
 2. Garanta que `.env.example` não contém segredo real:
    ```bash
