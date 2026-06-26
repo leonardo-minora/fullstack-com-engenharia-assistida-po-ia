@@ -53,15 +53,16 @@ Critério de sucesso:
    ```
 
 ### 2) `GEMINI_API_KEY` carregada
-1. Defina a variável no shell atual:
+1. Defina a variável no shell atual sem expor a chave no histórico:
    ```bash
-   export GEMINI_API_KEY="SUA_CHAVE_REAL_AQUI"
+   read -s GEMINI_API_KEY && export GEMINI_API_KEY
+   echo
    ```
 2. Confirme se a variável foi carregada:
    ```bash
    printenv GEMINI_API_KEY
    ```
-3. (Opcional) Para uso local, salve em `.env` (não versionado) com permissão restrita:
+3. Para uso local contínuo, prefira `.env` (não versionado) com permissão restrita:
    ```bash
    touch .env
    grep -q '^GEMINI_API_KEY=' .env || echo 'GEMINI_API_KEY=""' >> .env
