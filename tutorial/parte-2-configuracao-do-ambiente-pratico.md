@@ -46,7 +46,7 @@ Critério de sucesso:
    ```
 3. Valide a instalação:
    ```bash
-   gemini --version
+   gemini --help
    ```
 
 ### 2) `GEMINI_API_KEY` carregada
@@ -71,11 +71,15 @@ Critério de sucesso:
    ```
 
 ### 3) Hello World executado
-1. Execute um prompt simples no terminal:
+1. Consulte a sintaxe de envio de prompt da versão instalada:
+   ```bash
+   gemini --help
+   ```
+2. Execute um prompt simples no terminal (exemplo para versões que aceitam prompt direto):
    ```bash
    gemini "responda apenas: Hello World"
    ```
-2. Confirme que a resposta ocorreu sem erro de autenticação.
+3. Confirme que a resposta ocorreu sem erro de autenticação.
 
 ### 4) Regras de segurança aplicadas
 1. Verifique se `.env` está ignorado:
