@@ -42,11 +42,11 @@ Critério de sucesso:
    ```
 2. Instale o Gemini CLI (ajuste conforme a documentação da versão adotada):
    ```bash
-   npm install -g @google/gemini-cli
+   npm install -g <pacote-do-gemini-cli-da-sua-versao>
    ```
 3. Valide a instalação:
    ```bash
-   gemini --help
+   <comando-cli> --help
    ```
 
 ### 2) `GEMINI_API_KEY` carregada
@@ -74,11 +74,11 @@ Critério de sucesso:
 ### 3) Hello World executado
 1. Consulte a sintaxe de envio de prompt da versão instalada (os comandos podem variar entre versões):
    ```bash
-   gemini --help
+   <comando-cli> --help
    ```
 2. Execute um prompt simples no terminal (exemplo para versões que aceitam prompt direto):
    ```bash
-   gemini "responda apenas: Hello World"
+   <comando-cli> "responda apenas: Hello World"
    ```
 3. Confirme que a resposta ocorreu sem erro de autenticação.
 
