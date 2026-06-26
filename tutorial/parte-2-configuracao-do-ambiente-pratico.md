@@ -58,10 +58,16 @@ Critério de sucesso:
    ```bash
    printenv GEMINI_API_KEY
    ```
-3. (Opcional) Persistir para próximas sessões (Linux/macOS com bash):
+3. (Opcional) Para uso local, salve em `.env` (não versionado) com permissão restrita:
    ```bash
-   echo 'export GEMINI_API_KEY="SUA_CHAVE_AQUI"' >> ~/.bashrc
-   source ~/.bashrc
+   echo 'GEMINI_API_KEY="SUA_CHAVE_AQUI"' > .env
+   chmod 600 .env
+   ```
+4. Carregue a variável a partir do `.env` no shell atual:
+   ```bash
+   set -a
+   source .env
+   set +a
    ```
 
 ### 3) Hello World executado
