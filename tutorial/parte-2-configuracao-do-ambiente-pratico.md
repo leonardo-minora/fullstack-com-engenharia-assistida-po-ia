@@ -31,3 +31,57 @@ Critério de sucesso:
 - [ ] `GEMINI_API_KEY` carregada
 - [ ] Hello World executado
 - [ ] Regras de segurança aplicadas
+
+## Passo a passo do checklist (com comandos)
+
+### 1) CLI instalado
+1. Verifique se o `node` e o `npm` estão instalados:
+   ```bash
+   node -v
+   npm -v
+   ```
+2. Instale o Gemini CLI (ajuste conforme a documentação da versão adotada):
+   ```bash
+   npm install -g @google/gemini-cli
+   ```
+3. Valide a instalação:
+   ```bash
+   gemini --version
+   ```
+
+### 2) `GEMINI_API_KEY` carregada
+1. Defina a variável no shell atual:
+   ```bash
+   export GEMINI_API_KEY="SUA_CHAVE_AQUI"
+   ```
+2. Confirme se a variável foi carregada:
+   ```bash
+   printenv GEMINI_API_KEY
+   ```
+3. (Opcional) Persistir para próximas sessões (Linux/macOS com bash):
+   ```bash
+   echo 'export GEMINI_API_KEY="SUA_CHAVE_AQUI"' >> ~/.bashrc
+   source ~/.bashrc
+   ```
+
+### 3) Hello World executado
+1. Execute um prompt simples no terminal:
+   ```bash
+   gemini "responda apenas: Hello World"
+   ```
+2. Confirme que a resposta ocorreu sem erro de autenticação.
+
+### 4) Regras de segurança aplicadas
+1. Verifique se `.env` está ignorado:
+   ```bash
+   grep -n '^\.env$' .gitignore
+   ```
+2. Garanta que `.env.example` não contém segredo real:
+   ```bash
+   cat .env.example
+   ```
+3. Antes de commitar, confira se não há segredos rastreados:
+   ```bash
+   git status
+   git diff
+   ```
