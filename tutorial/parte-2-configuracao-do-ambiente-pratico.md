@@ -65,7 +65,7 @@ Critério de sucesso:
 3. Para uso local contínuo, prefira `.env` (não versionado) com permissão restrita:
    ```bash
    touch .env
-   grep -q '^GEMINI_API_KEY=' .env 2>/dev/null || echo 'GEMINI_API_KEY=' >> .env
+   grep -q '^GEMINI_API_KEY' .env 2>/dev/null || echo 'GEMINI_API_KEY=' >> .env
    chmod 600 .env
    ```
 4. Edite o `.env` e preencha a chave real em `GEMINI_API_KEY`.
@@ -91,6 +91,7 @@ Critério de sucesso:
 1. Verifique se `.env` está ignorado:
    ```bash
    grep '^\.env$' .gitignore
+   grep '^\.env$' .gitignore >/dev/null || echo '.env' >> .gitignore
    ```
 2. Garanta que `.env.example` não contém segredo real:
    ```bash
