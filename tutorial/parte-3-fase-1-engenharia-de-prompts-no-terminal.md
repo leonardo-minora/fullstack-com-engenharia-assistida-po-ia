@@ -38,17 +38,17 @@ alias ai-cli="<comando-cli>"
 2. Liste arquivos principais da API, Web e DB:
    ```bash
    ls
-   LIMITE=40   # ajuste conforme o tamanho do projeto
-   find apps -maxdepth 3 -type f | head -n "$LIMITE"
-   find packages -maxdepth 3 -type f | head -n "$LIMITE"
+   LIMIT=40   # ajuste conforme o tamanho do projeto
+   find apps -maxdepth 3 -type f | head -n "$LIMIT"
+   find packages -maxdepth 3 -type f | head -n "$LIMIT"
    # Para explorar sem corte fixo, use:
    # find apps -maxdepth 3 -type f | less
    ```
 3. Localize arquivos relacionados ao domínio de prompts:
    ```bash
-   grep -RInE --exclude-dir=node_modules --exclude-dir=.next --include="*.ts" --include="*.tsx" "prompt|prompts|tag|etiqueta|like|dislike" apps packages
+   rg -n -i "prompt|prompts|tag|etiqueta|like|dislike" apps packages --glob "*.ts" --glob "*.tsx"
    ```
-   > Dica: revise os resultados para evitar falsos positivos e, se necessário, refine com termos mais específicos (ex.: `PromptEntity|PromptService|TagService`).
+   > Dica: os termos em inglês e português são intencionais para cobrir bases com nomenclatura mista. Se necessário, refine com termos mais específicos (ex.: `PromptEntity|PromptService|TagService`).
 
 ### 2) Separar os arquivos que irão para o contexto
 Selecione somente arquivos necessários:
