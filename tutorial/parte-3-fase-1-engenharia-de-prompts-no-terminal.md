@@ -25,6 +25,10 @@ Regras funcionais desta fase:
 
 ## Passo a passo no terminal (com comandos)
 > Substitua `<comando-cli>` pelo comando da IA no seu ambiente (ex.: `gemini`, se esse for o binário instalado).
+> Opcional: crie um alias para evitar repetir substituições:
+> ```bash
+> alias ai-cli="<comando-cli>"
+> ```
 
 ### 1) Levantar contexto do monorepo
 1. Entre na raiz do projeto:
@@ -34,13 +38,17 @@ Regras funcionais desta fase:
 2. Liste arquivos principais da API, Web e DB:
    ```bash
    ls
-   find apps -maxdepth 3 -type f | head -n 40   # aumente 40 se o projeto for maior
-   find packages -maxdepth 3 -type f | head -n 40   # aumente 40 se necessário
+   LIMITE=40   # ajuste conforme o tamanho do projeto
+   find apps -maxdepth 3 -type f | head -n "$LIMITE"
+   find packages -maxdepth 3 -type f | head -n "$LIMITE"
+   # Para explorar sem corte fixo, use:
+   # find apps -maxdepth 3 -type f | less
    ```
 3. Localize arquivos relacionados ao domínio de prompts:
    ```bash
    grep -RInE --exclude-dir=node_modules --exclude-dir=.next --include="*.ts" --include="*.tsx" "prompt|tag|search|like|dislike" apps packages
    ```
+   > Dica: revise os resultados para evitar falsos positivos e, se necessário, refine com termos mais específicos do projeto.
 
 ### 2) Separar os arquivos que irão para o contexto
 Selecione somente arquivos necessários:
