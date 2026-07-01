@@ -34,12 +34,12 @@ Regras funcionais desta fase:
 2. Liste arquivos principais da API, Web e DB:
    ```bash
    ls
-   find apps -maxdepth 3 -type f | head -n 40
-   find packages -maxdepth 3 -type f | head -n 40
+   find apps -maxdepth 3 -type f | head -n 40   # aumente 40 se o projeto for maior
+   find packages -maxdepth 3 -type f | head -n 40   # aumente 40 se necessário
    ```
 3. Localize arquivos relacionados ao domínio de prompts:
    ```bash
-   grep -RInE "prompt|tag|search|like|dislike" apps packages
+   grep -RInE --exclude-dir=node_modules --exclude-dir=.next --include="*.ts" --include="*.tsx" "prompt|tag|search|like|dislike" apps packages
    ```
 
 ### 2) Separar os arquivos que irão para o contexto
@@ -69,7 +69,7 @@ Exemplo (copie e ajuste):
 Atue como engenheiro fullstack sênior em monorepo com NestJS + Next.js + PostgreSQL.
 Objetivo: implementar a fase inicial de uma rede social de prompts.
 Escopo:
-- Prompt possui: id, titulo, conteudo, etiquetas[]
+- Prompt possui: id, título, conteúdo, etiquetas[]
 - Permitir gostar e não gostar por prompt
 - Permitir pesquisa por texto e etiqueta
 Restrições:
