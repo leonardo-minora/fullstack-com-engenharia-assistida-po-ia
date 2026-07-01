@@ -25,10 +25,10 @@ Regras funcionais desta fase:
 
 ## Passo a passo no terminal (com comandos)
 > Substitua `<comando-cli>` pelo comando da IA no seu ambiente (ex.: `gemini`, se esse for o binário instalado).
-> Opcional: crie um alias para evitar repetir substituições:
-> ```bash
-> alias ai-cli="<comando-cli>"
-> ```
+Opcional: crie um alias para evitar repetir substituições:
+```bash
+alias ai-cli="<comando-cli>"
+```
 
 ### 1) Levantar contexto do monorepo
 1. Entre na raiz do projeto:
@@ -46,9 +46,9 @@ Regras funcionais desta fase:
    ```
 3. Localize arquivos relacionados ao domínio de prompts:
    ```bash
-   grep -RInE --exclude-dir=node_modules --exclude-dir=.next --include="*.ts" --include="*.tsx" "prompt|tag|search|like|dislike" apps packages
+   grep -RInE --exclude-dir=node_modules --exclude-dir=.next --include="*.ts" --include="*.tsx" "prompt|prompts|tag|etiqueta|like|dislike" apps packages
    ```
-   > Dica: revise os resultados para evitar falsos positivos e, se necessário, refine com termos mais específicos do projeto.
+   > Dica: revise os resultados para evitar falsos positivos e, se necessário, refine com termos mais específicos (ex.: `PromptEntity|PromptService|TagService`).
 
 ### 2) Separar os arquivos que irão para o contexto
 Selecione somente arquivos necessários:
@@ -91,6 +91,7 @@ Critérios de aceite:
 - Código organizado e coerente com a base atual
 "
 ```
+> Observação: se o seu shell não aceitar string multilinha com aspas duplas, adapte para uma linha única ou use o formato de prompt suportado pelo seu CLI.
 
 ### 4) Pedir implementação incremental
 1. Primeiro, solicite só API:
