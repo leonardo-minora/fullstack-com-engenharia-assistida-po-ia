@@ -37,8 +37,8 @@ alias ai-cli="<comando-cli>"
    ```
 2. Liste arquivos principais da API, Web e DB:
    ```bash
-   ls
    LIMIT=40   # ajuste conforme o tamanho do projeto
+   ls
    find apps -maxdepth 3 -type f | head -n "$LIMIT"
    find packages -maxdepth 3 -type f | head -n "$LIMIT"
    # Para explorar sem corte fixo, use:
@@ -48,6 +48,7 @@ alias ai-cli="<comando-cli>"
    ```bash
    rg -n -i "prompt|prompts|tag|etiqueta|like|dislike" apps packages --glob "*.ts" --glob "*.tsx"
    ```
+   > Se `rg` não estiver instalado, use: `grep -RInE --include="*.ts" --include="*.tsx" "prompt|prompts|tag|etiqueta|like|dislike" apps packages`.
    > Dica: os termos em inglês e português são intencionais para cobrir bases com nomenclatura mista. Se necessário, refine com termos mais específicos (ex.: `PromptEntity|PromptService|TagService`).
 
 ### 2) Separar os arquivos que irão para o contexto
@@ -90,6 +91,10 @@ Critérios de aceite:
 - Tela web com listagem e campo de pesquisa
 - Código organizado e coerente com a base atual
 "
+```
+Alternativa em linha única:
+```bash
+<comando-cli> "Atue como engenheiro fullstack sênior em monorepo com NestJS + Next.js + PostgreSQL. Objetivo: implementar a fase inicial de uma rede social de prompts. Escopo: Prompt possui id, título, conteúdo, etiquetas[]; permitir gostar e não gostar por prompt; permitir pesquisa por texto e etiqueta. Restrições: manter padrões do repositório, não criar dependências novas sem necessidade e não expor dados sensíveis. Critérios de aceite: endpoints da API para criar/listar prompts e reagir com like/dislike; pesquisa por texto e etiqueta funcionando; tela web com listagem e campo de pesquisa; código organizado e coerente com a base atual."
 ```
 > Observação: se o seu shell não aceitar string multilinha com aspas duplas, adapte para uma linha única ou use o formato de prompt suportado pelo seu CLI.
 
