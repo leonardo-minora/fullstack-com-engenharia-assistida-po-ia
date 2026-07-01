@@ -29,7 +29,7 @@ Regras funcionais desta fase:
 ### 1) Levantar contexto do monorepo
 1. Entre na raiz do projeto:
    ```bash
-   cd /home/runner/work/fullstack-com-engenharia-assistida-po-ia/fullstack-com-engenharia-assistida-po-ia
+   cd /caminho/para/seu/projeto
    ```
 2. Liste arquivos principais da API, Web e DB:
    ```bash
@@ -39,7 +39,7 @@ Regras funcionais desta fase:
    ```
 3. Localize arquivos relacionados ao domínio de prompts:
    ```bash
-   grep -RIn "prompt\\|tag\\|search\\|like\\|dislike" apps packages
+   grep -RInE "prompt|tag|search|like|dislike" apps packages
    ```
 
 ### 2) Separar os arquivos que irão para o contexto
